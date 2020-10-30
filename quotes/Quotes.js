@@ -6,8 +6,8 @@ export default function Quotes(props) {
     return (
         <div>
             <p>{props.randomQuote.quoteText}</p>
-            <Link to={`/QuoteByAuthor/${props.randomQuote._id}`}>
-                <button className="author-button" value={props.quoteAuthor}>
+            <Link to="/quotes">
+                <button className="author-button" value={props.randomQuote.quoteAuthor} onClick={props.button}>
                     <h3>{props.randomQuote.quoteAuthor}</h3>
                     <small>{props.randomQuote.quoteGenre}</small>
                 </button>
