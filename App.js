@@ -1,5 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import Quotes from './Quotes';
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route
+} from 'react-router-dom';
+import QuoteByAuthor from './QuoteByAuthor';
 
 function App() {
     const [quotesGenRandom, setQuotesGenRandom] = useState([]);
@@ -31,12 +37,21 @@ function App() {
         setRandomQuote(allQuotes[randomIndex]);
         console.log(allQuotes[randomIndex]);
     }
-    console.log(randomQuote,"RANDOM");
+    console.log(randomQuote, "RANDOM");
 
     return (
         <div>
             <button onClick={handleClick}>Random</button>
-         <Quotes randomQuote={randomQuote}/>
+            <Router>
+                <Switch>
+                    <Route path="/">
+                        <Quotes randomQuote={randomQuote} />
+                    </Route>
+                    <Route path="./:id">
+                        <QuoteByAuthor />
+                    </Route>
+                </Switch>
+            </Router>
         </div>
     )
 }

@@ -1,0 +1,16 @@
+.author-button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    max-height: 151px;
+    transition: background-color ease-in .2s;
+}
+
+.author-button:hover,
+.author-button:focus {
+    background-color: #333333;
+    color: #F2F2F2;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color ease-in .2s;
+}
