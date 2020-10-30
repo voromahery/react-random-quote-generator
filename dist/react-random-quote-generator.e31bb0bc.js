@@ -33870,6 +33870,17 @@ function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
 function QuoteByAuthor(props) {
+  const [authorQuote, setAuthorQuote] = (0, _react.useState)([]); // const authorName = props.randomQuote.quoteAuthor;
+  // console.log(authorName);
+
+  const quoteToFetch = `https://quote-garden.herokuapp.com/api/v2/authors/:?page=1&limit=10`;
+
+  async function fetchQuote() {
+    const response = await fetch();
+    const data = await response.json();
+    setAuthorQuote(data);
+  }
+
   return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, "HELLO GUYS"), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
     to: "/"
   }, /*#__PURE__*/_react.default.createElement("p", null, "Back to homepage")));
@@ -33934,7 +33945,7 @@ function App() {
   }
 
   async function fetchAllQuotes() {
-    const response2 = await fetch("https://quote-garden.herokuapp.com/api/v2/quotes?page=1&limit=10");
+    const response2 = await fetch("https://quote-garden.herokuapp.com/api/v2/quotes?page=1&limit=100");
     const data2 = await response2.json();
     setAllQuotes(data2.quotes);
     console.log(data2.quotes, "2");
@@ -33956,6 +33967,8 @@ function App() {
 
   function button(e) {
     const buttons = e.target.value;
+    const findByAuthor = allQuotes.filter(quote => quote.quoteAuthor == buttons);
+    console.log(findByAuthor);
     console.log(buttons);
   }
 
@@ -34013,7 +34026,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57675" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60240" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

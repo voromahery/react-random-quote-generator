@@ -20,7 +20,7 @@ function App() {
     }
 
     async function fetchAllQuotes() {
-        const response2 = await fetch("https://quote-garden.herokuapp.com/api/v2/quotes?page=1&limit=10");
+        const response2 = await fetch("https://quote-garden.herokuapp.com/api/v2/quotes?page=1&limit=100");
         const data2 = await response2.json();
         setAllQuotes(data2.quotes)
         console.log(data2.quotes, "2");
@@ -41,6 +41,8 @@ function App() {
 
 function button(e) {
     const buttons = e.target.value;
+    const findByAuthor = allQuotes.filter((quote) => quote.quoteAuthor == buttons);
+    console.log(findByAuthor);
 
     console.log(buttons);
 }
