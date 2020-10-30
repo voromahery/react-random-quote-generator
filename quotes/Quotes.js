@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import QuoteByAuthor from './QuoteByAuthor';
 
 export default function Quotes(props) {
     return (

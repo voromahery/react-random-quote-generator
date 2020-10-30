@@ -3,20 +3,27 @@ import { Link } from 'react-router-dom';
 
 export default function QuoteByAuthor(props) {
     const [authorQuote, setAuthorQuote] = useState([]);
-    // const authorName = props.randomQuote.quoteAuthor;
-    // console.log(authorName);
+    const authorName = props.randomQuote.quoteAuthor;
+    console.log(authorName,"BY NAME");
 
-    const quoteToFetch = `https://quote-garden.herokuapp.com/api/v2/authors/:?page=1&limit=10`;
+    const quoteToFetch = `https://quote-garden.herokuapp.com/api/v2/authors/${authorName}?page=1&limit=10`;
 
     async function fetchQuote() {
-        const response = await fetch();
+        const response = await fetch(quoteToFetch);
         const data = await response.json();
-        setAuthorQuote(data);
+        setAuthorQuote(data.quotes);
     }
-    
+
+    useEffect(() => {
+        fetchQuote(authorQuote);
+    }, [])
+
+console.log(authorQuote,"LAO");
+
     return (
         <div>
-            <p>HELLO GUYS</p>
+            <h2>{authorName}</h2>
+            {authorQuote.map((quote) => <p key={quote._id}>{quote.quoteText}</p>)}
             <Link to="/">
                 <p>Back to homepage</p>
             </Link>

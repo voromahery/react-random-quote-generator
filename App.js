@@ -16,14 +16,12 @@ function App() {
         const response1 = await fetch("https://quote-garden.herokuapp.com/api/v2/quotes/random");
         const data1 = await response1.json();
         setQuotesGenRandom(data1.quote)
-        console.log(data1.quote, "1");
     }
 
     async function fetchAllQuotes() {
         const response2 = await fetch("https://quote-garden.herokuapp.com/api/v2/quotes?page=1&limit=100");
         const data2 = await response2.json();
-        setAllQuotes(data2.quotes)
-        console.log(data2.quotes, "2");
+        setAllQuotes(data2.quotes);
     }
 
     useEffect(() => {
@@ -37,16 +35,12 @@ function App() {
         setRandomQuote(allQuotes[randomIndex]);
         console.log(allQuotes[randomIndex]);
     }
-    console.log(randomQuote, "RANDOM");
 
 function button(e) {
     const buttons = e.target.value;
-    const findByAuthor = allQuotes.filter((quote) => quote.quoteAuthor == buttons);
-    console.log(findByAuthor);
-
-    console.log(buttons);
+    const findByAuthor = allQuotes.filter((quote) => quote.quoteAuthor === buttons);
+    setQuotesGenRandom(findByAuthor);
 }
-
 
     return (
         <div>
@@ -54,7 +48,7 @@ function button(e) {
             <Router>
                 <Switch>
                     <Route path="/quotes">
-                        <QuoteByAuthor />
+                        <QuoteByAuthor allQuotes={allQuotes} randomQuote={randomQuote}/>
                     </Route>
                     <Route path="/">
                         <Quotes randomQuote={randomQuote} button={button}/>
