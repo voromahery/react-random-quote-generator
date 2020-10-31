@@ -15,7 +15,7 @@ function App() {
     async function fetchRandomQuote() {
         const response1 = await fetch("https://quote-garden.herokuapp.com/api/v2/quotes/random");
         const data1 = await response1.json();
-        setQuotesGenRandom(data1.quote)
+        setQuotesGenRandom(data1.quote);
     }
 
     async function fetchAllQuotes() {
@@ -42,6 +42,11 @@ function App() {
         setQuotesGenRandom(findByAuthor);
     }
 
+    console.log(allQuotes,"ALL");
+    console.log(quotesGenRandom, "RANDOM");
+    console.log(randomQuote,"RQ");
+
+
     return (
         <div className="site-container">
             <div className="button-wrapper">
@@ -50,10 +55,10 @@ function App() {
             <Router>
                 <Switch>
                     <Route path="/quotes">
-                        <QuoteByAuthor allQuotes={allQuotes} randomQuote={randomQuote} />
+                        <QuoteByAuthor allQuotes={allQuotes} randomQuote={randomQuote}  quotesGenRandom={quotesGenRandom} />
                     </Route>
                     <Route path="/">
-                        <Quotes randomQuote={randomQuote} button={button} />
+                        <Quotes randomQuote={randomQuote} button={button} quotesGenRandom={quotesGenRandom} />
                     </Route>
                 </Switch>
             </Router>
