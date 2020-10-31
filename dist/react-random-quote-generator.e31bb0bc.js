@@ -33877,19 +33877,19 @@ function Quotes(props) {
     className: "container"
   }, /*#__PURE__*/_react.default.createElement("p", {
     className: "quote"
-  }, props.randomQuote.quoteText || props.quotesGenRandom.quoteText), /*#__PURE__*/_react.default.createElement("div", {
+  }, props.quotesGenRandom.quoteText), /*#__PURE__*/_react.default.createElement("div", {
     className: "link-wrapper"
   }, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
     to: "/quotes"
   }, /*#__PURE__*/_react.default.createElement("button", {
     className: "author-button",
-    value: props.randomQuote.quoteAuthor || props.quotesGenRandom.quoteAuthor,
+    value: props.quotesGenRandom.quoteAuthor,
     onClick: props.button
   }, /*#__PURE__*/_react.default.createElement("h3", {
     className: "author-name"
-  }, props.randomQuote.quoteAuthor || props.quotesGenRandom.quoteAuthor), /*#__PURE__*/_react.default.createElement("small", {
+  }, props.quotesGenRandom.quoteAuthor), /*#__PURE__*/_react.default.createElement("small", {
     className: "quote-genre"
-  }, props.randomQuote.quoteGenre || props.quotesGenRandom.quoteGenre))))));
+  }, props.quotesGenRandom.quoteGenre))))));
 }
 },{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js"}],"quotes/QuoteByAuthor.js":[function(require,module,exports) {
 "use strict";
@@ -33909,8 +33909,12 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 function QuoteByAuthor(props) {
   const [authorQuote, setAuthorQuote] = (0, _react.useState)([]);
-  const authorName = props.randomQuote.quoteAuthor;
-  const quoteToFetch = `https://quote-garden.herokuapp.com/api/v2/authors/${authorName}?page=1&limit=3`;
+  const authorName = props.quotesGenRandom.quoteAuthor;
+  const authorQuotes = props.allQuotes.find(quote => quote.quoteAuthor === authorName);
+  console.log(authorQuotes, "FFF");
+  console.log(props.allQuotes, "ALL");
+  console.log(authorName, "NAME");
+  const quoteToFetch = `https://quote-garden.herokuapp.com/api/v2/authors/${authorName}?page=1&limit=10`;
 
   async function fetchQuote() {
     const response = await fetch(quoteToFetch);
@@ -33987,10 +33991,11 @@ function App() {
 
   function button(e) {
     const buttons = e.target.value;
-    const findByAuthor = allQuotes.filter(quote => quote.quoteAuthor === buttons);
+    const findByAuthor = quotesGenRandom.filter(quote => quote.quoteAuthor === buttons);
     setQuotesGenRandom(findByAuthor);
   }
 
+  console.log(allQuotes);
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "site-container"
   }, /*#__PURE__*/_react.default.createElement(_reactRouterDom.BrowserRouter, null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Switch, null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
@@ -34051,7 +34056,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52067" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55096" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

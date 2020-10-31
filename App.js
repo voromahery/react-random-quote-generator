@@ -38,9 +38,11 @@ function App() {
 
     function button(e) {
         const buttons = e.target.value;
-        const findByAuthor = allQuotes.filter((quote) => quote.quoteAuthor === buttons);
+        const findByAuthor = quotesGenRandom.filter((quote) => quote.quoteAuthor === buttons);
         setQuotesGenRandom(findByAuthor);
     }
+
+    console.log(allQuotes);
 
     return (
         <div className="site-container">
