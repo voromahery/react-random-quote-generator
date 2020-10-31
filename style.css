@@ -1,16 +1,137 @@
+body {
+    color: #4F4F4F;
+    margin: auto;
+}
+
+#root {
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.site-container {
+    padding-top: 32px;
+    padding-bottom: 32px;
+}
+
+button {
+    border: none;
+}
+
 .author-button {
     background-color: transparent;
-    border: none;
     outline: none;
     max-height: 151px;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 100%;
+    text-align: left;
     transition: background-color ease-in .2s;
 }
 
 .author-button:hover,
 .author-button:focus {
+    background-image: url("./icons/arrow_right.svg");
+    background-position: 96%, center;
+    background-repeat: no-repeat;
     background-color: #333333;
     color: #F2F2F2;
     font-weight: 700;
     cursor: pointer;
     transition: background-color ease-in .2s;
 }
+
+.container {
+    max-width: 400px;
+    margin: auto;
+}
+
+.quote {
+    font-size: 20px;
+    border-left: solid 5px #F7DF94;
+    padding-left: 16px;
+    margin-top: 70px;
+    margin-bottom: 70px;
+}
+
+.random-generator-button {
+    background-color: transparent;
+}
+
+.random-generator-button::after {
+    content: "";
+    background-image: url("./icons/refresh-icon.svg");
+    padding-left: 20px;
+    width: 16px;
+    background-position-x: right;
+    background-size: contain;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.button-wrapper {
+    text-align: right;
+}
+
+/* .heading {
+
+}
+
+.page-navigator {
+
+} */
+
+.author-name {
+    font-size: 12px;
+}
+
+.quote-genre {
+    font-size: 7px;
+    color: #828282;
+}
+
+footer {
+    text-align: center;
+}
+
+.developer-contact {
+    font-family: 'Segoe Print', cursive;
+    cursor: pointer;
+    color: #A9A9A9;
+    text-decoration: none;
+    transition: all ease-in-out .2s;
+}
+
+.developer-contact:hover {
+    text-decoration: underline;
+    transition: all ease-in-out .2s;
+}
+
+.page-navigator {
+    text-decoration: inherit;
+    text-transform: uppercase;
+    color: white;
+    cursor: pointer;
+    background-color: rgb(63, 63, 216);
+    max-width: 180px;
+    padding: 16px;
+}
+
+@media (min-width: 500px) {
+
+    main,
+    footer {
+        max-width: 1200px;
+        margin: auto;
+        padding-left: 100px;
+        padding-right: 100px;
+    }
+
+    .link-wrapper {
+        padding-left: 16px;
+    }
+
+    .quote {
+        padding-left: 32px;
+    }
+    
+} 

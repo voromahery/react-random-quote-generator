@@ -1,32 +1,6 @@
 # Random Quote Generator in React
 
-Challenge: Create a quote generator app, and use React to handle the frontend. Don’t look at the existing solution. Fulfill user stories below:
-
-![image](./assets/quote1.png)
-![image](./assets/quote2.png)
-
--   User story: I can see a random quote
--   User story: I generate a new random quote
--   User story: When I select quote author, I can see a list of quotes from them
--   User story: I can see quote genre under the author
-
-API: https://pprathameshmore.github.io/QuoteGarden/
-
-Icon: https://google.github.io/material-design-icons/
-
-[Check the design link here](https://www.figma.com/file/FFxqnf1cEDiHhvFpN6u4hV)
-
-As long as you fulfill all the user stories, you can give your personal touches by adding transition, using your own images, changing colors, or even creating your own layout,...
-
-Once you completed, submit your solutions by providing URLs for both GitHub repository and live app on Netlify and explain briefly what you have done.
-
-Good luck everybody!
-
-Template for your readme :
-
-<!-- Please update value in the {}  -->
-
-<h1 align="center">{Your project name}</h1>
+<h1 align="center">Random quote Generator</h1>
 
 <div align="center">
   <h3>
@@ -45,7 +19,7 @@ Template for your readme :
 ## Table of Contents
 
 -   [Overview](#overview)
-    -   [Built With](#built-with)
+    -  [Built With](https://reactjs.org/)
 -   [Features](#features)
 -   [How to use](#how-to-use)
 -   [Contact](#contact)

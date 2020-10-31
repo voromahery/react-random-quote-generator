@@ -6,7 +6,7 @@ export default function QuoteByAuthor(props) {
     const authorName = props.randomQuote.quoteAuthor;
     console.log(authorName,"BY NAME");
 
-    const quoteToFetch = `https://quote-garden.herokuapp.com/api/v2/authors/${authorName}?page=1&limit=10`;
+    const quoteToFetch = `https://quote-garden.herokuapp.com/api/v2/authors/${authorName}?page=1&limit=3`;
 
     async function fetchQuote() {
         const response = await fetch(quoteToFetch);
@@ -18,15 +18,15 @@ export default function QuoteByAuthor(props) {
         fetchQuote(authorQuote);
     }, [])
 
-console.log(authorQuote,"LAO");
+console.log(authorQuote);
 
     return (
-        <div>
-            <h2>{authorName}</h2>
-            {authorQuote.map((quote) => <p key={quote._id}>{quote.quoteText}</p>)}
+        <blockquote className="container">
+            <h2 className="heading">{authorName}</h2>
+            {authorQuote.map((quote) => <p key={quote._id} className="quote">{quote.quoteText}</p>)}
             <Link to="/">
-                <p>Back to homepage</p>
+                <p className="page-navigator">Back to homepage</p>
             </Link>
-        </div>
+        </blockquote>
     )
 }

@@ -19,7 +19,7 @@ function App() {
     }
 
     async function fetchAllQuotes() {
-        const response2 = await fetch("https://quote-garden.herokuapp.com/api/v2/quotes?page=1&limit=100");
+        const response2 = await fetch("https://quote-garden.herokuapp.com/api/v2/quotes?page=1&limit=10");
         const data2 = await response2.json();
         setAllQuotes(data2.quotes);
     }
@@ -36,22 +36,24 @@ function App() {
         console.log(allQuotes[randomIndex]);
     }
 
-function button(e) {
-    const buttons = e.target.value;
-    const findByAuthor = allQuotes.filter((quote) => quote.quoteAuthor === buttons);
-    setQuotesGenRandom(findByAuthor);
-}
+    function button(e) {
+        const buttons = e.target.value;
+        const findByAuthor = allQuotes.filter((quote) => quote.quoteAuthor === buttons);
+        setQuotesGenRandom(findByAuthor);
+    }
 
     return (
-        <div>
-            <button onClick={handleClick}>Random</button>
+        <div className="site-container">
+            <div className="button-wrapper">
+                <button onClick={handleClick} className="random-generator-button">random</button>
+            </div>
             <Router>
                 <Switch>
                     <Route path="/quotes">
-                        <QuoteByAuthor allQuotes={allQuotes} randomQuote={randomQuote}/>
+                        <QuoteByAuthor allQuotes={allQuotes} randomQuote={randomQuote} />
                     </Route>
                     <Route path="/">
-                        <Quotes randomQuote={randomQuote} button={button}/>
+                        <Quotes randomQuote={randomQuote} button={button} />
                     </Route>
                 </Switch>
             </Router>
