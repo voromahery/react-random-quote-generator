@@ -33868,7 +33868,12 @@ var _reactRouterDom = require("react-router-dom");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function Quotes(props) {
-  return /*#__PURE__*/_react.default.createElement("blockquote", {
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("div", {
+    className: "button-wrapper"
+  }, /*#__PURE__*/_react.default.createElement("button", {
+    onClick: props.handleClick,
+    className: "random-generator-button"
+  }, "random")), /*#__PURE__*/_react.default.createElement("blockquote", {
     className: "container"
   }, /*#__PURE__*/_react.default.createElement("p", {
     className: "quote"
@@ -33884,7 +33889,7 @@ function Quotes(props) {
     className: "author-name"
   }, props.randomQuote.quoteAuthor || props.quotesGenRandom.quoteAuthor), /*#__PURE__*/_react.default.createElement("small", {
     className: "quote-genre"
-  }, props.randomQuote.quoteGenre || props.quotesGenRandom.quoteGenre)))));
+  }, props.randomQuote.quoteGenre || props.quotesGenRandom.quoteGenre))))));
 }
 },{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js"}],"quotes/QuoteByAuthor.js":[function(require,module,exports) {
 "use strict";
@@ -33904,10 +33909,7 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 function QuoteByAuthor(props) {
   const [authorQuote, setAuthorQuote] = (0, _react.useState)([]);
-  const authorRandom = props.quotesGenRandom.quoteAuthor;
-  console.log(authorRandom, "hh");
   const authorName = props.randomQuote.quoteAuthor;
-  console.log(authorName, "BY NAME");
   const quoteToFetch = `https://quote-garden.herokuapp.com/api/v2/authors/${authorName}?page=1&limit=3`;
 
   async function fetchQuote() {
@@ -33919,7 +33921,6 @@ function QuoteByAuthor(props) {
   (0, _react.useEffect)(() => {
     fetchQuote(authorQuote);
   }, []);
-  console.log(authorQuote);
   return /*#__PURE__*/_react.default.createElement("blockquote", {
     className: "container"
   }, /*#__PURE__*/_react.default.createElement("h2", {
@@ -33990,17 +33991,9 @@ function App() {
     setQuotesGenRandom(findByAuthor);
   }
 
-  console.log(allQuotes, "ALL");
-  console.log(quotesGenRandom, "RANDOM");
-  console.log(randomQuote, "RQ");
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "site-container"
-  }, /*#__PURE__*/_react.default.createElement("div", {
-    className: "button-wrapper"
-  }, /*#__PURE__*/_react.default.createElement("button", {
-    onClick: handleClick,
-    className: "random-generator-button"
-  }, "random")), /*#__PURE__*/_react.default.createElement(_reactRouterDom.BrowserRouter, null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Switch, null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
+  }, /*#__PURE__*/_react.default.createElement(_reactRouterDom.BrowserRouter, null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Switch, null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
     path: "/quotes"
   }, /*#__PURE__*/_react.default.createElement(_QuoteByAuthor.default, {
     allQuotes: allQuotes,
@@ -34011,7 +34004,8 @@ function App() {
   }, /*#__PURE__*/_react.default.createElement(_Quotes.default, {
     randomQuote: randomQuote,
     button: button,
-    quotesGenRandom: quotesGenRandom
+    quotesGenRandom: quotesGenRandom,
+    handleClick: handleClick
   })))));
 }
 
@@ -34057,7 +34051,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63617" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52067" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

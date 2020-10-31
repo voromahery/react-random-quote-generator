@@ -42,23 +42,15 @@ function App() {
         setQuotesGenRandom(findByAuthor);
     }
 
-    console.log(allQuotes,"ALL");
-    console.log(quotesGenRandom, "RANDOM");
-    console.log(randomQuote,"RQ");
-
-
     return (
         <div className="site-container">
-            <div className="button-wrapper">
-                <button onClick={handleClick} className="random-generator-button">random</button>
-            </div>
             <Router>
                 <Switch>
                     <Route path="/quotes">
                         <QuoteByAuthor allQuotes={allQuotes} randomQuote={randomQuote}  quotesGenRandom={quotesGenRandom} />
                     </Route>
                     <Route path="/">
-                        <Quotes randomQuote={randomQuote} button={button} quotesGenRandom={quotesGenRandom} />
+                        <Quotes randomQuote={randomQuote} button={button} quotesGenRandom={quotesGenRandom} handleClick={handleClick}/>
                     </Route>
                 </Switch>
             </Router>

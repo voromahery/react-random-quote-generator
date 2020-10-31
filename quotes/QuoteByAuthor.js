@@ -3,11 +3,7 @@ import { Link } from 'react-router-dom';
 
 export default function QuoteByAuthor(props) {
     const [authorQuote, setAuthorQuote] = useState([]);
-    const authorRandom = props.quotesGenRandom.quoteAuthor;
-    console.log(authorRandom,"hh");
     const authorName = props.randomQuote.quoteAuthor;
-    console.log(authorName,"BY NAME");
-
     const quoteToFetch = `https://quote-garden.herokuapp.com/api/v2/authors/${authorName}?page=1&limit=3`;
 
     async function fetchQuote() {
@@ -19,8 +15,6 @@ export default function QuoteByAuthor(props) {
     useEffect(() => {
         fetchQuote(authorQuote);
     }, [])
-
-console.log(authorQuote);
 
     return (
         <blockquote className="container">
