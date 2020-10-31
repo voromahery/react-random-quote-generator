@@ -33990,8 +33990,7 @@ function App() {
     const findByAuthor = randomQuote.filter(quote => quote.quoteAuthor === buttons);
     setRandomQuote(findByAuthor);
     console.log(findByAuthor, "YESS");
-  } // console.log(allQuotes);
-
+  }
 
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "site-container"
@@ -34054,7 +34053,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55096" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55428" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

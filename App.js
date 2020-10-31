@@ -43,8 +43,6 @@ function App() {
         console.log(findByAuthor,"YESS");
     }
 
-    // console.log(allQuotes);
-
     return (
         <div className="site-container">
             <Router>
