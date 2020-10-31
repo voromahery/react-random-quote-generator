@@ -33909,7 +33909,7 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 function QuoteByAuthor(props) {
   const [authorQuote, setAuthorQuote] = (0, _react.useState)([]);
-  const authorName = props.quotesGenRandom.quoteAuthor;
+  const authorName = props.allQuotes.quoteAuthor || props.quotesGenRandom.quoteAuthor;
   console.log(props.allQuotes, "ALL");
   console.log(authorName, "NAME");
   const quoteToFetch = `https://quote-garden.herokuapp.com/api/v2/authors/${authorName}?page=1&limit=10`;
@@ -33992,8 +33992,8 @@ function App() {
 
   function button(e) {
     const buttons = e.target.value;
-    const findByAuthor = quotesGenRandom.filter(quote => quote.quoteAuthor === buttons);
-    setQuotesGenRandom(findByAuthor);
+    const findByAuthor = randomQuote.filter(quote => quote.quoteAuthor === buttons);
+    setRandomQuote(findByAuthor);
     console.log(findByAuthor, "YESS");
   } // console.log(allQuotes);
 

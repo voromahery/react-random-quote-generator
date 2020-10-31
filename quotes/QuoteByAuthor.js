@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export default function QuoteByAuthor(props) {
     const [authorQuote, setAuthorQuote] = useState([]);
-    const authorName = props.quotesGenRandom.quoteAuthor;
+    const authorName = props.allQuotes.quoteAuthor || props.quotesGenRandom.quoteAuthor;
 
     console.log(props.allQuotes,"ALL");
     console.log(authorName,"NAME");
