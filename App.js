@@ -34,10 +34,6 @@ function App() {
         const data4 = await response4.json();
         console.log(data4);
         setAllQuotes(data4.quote)
-        // const randomIndex = Math.floor(Math.random() * allQuotes.length);
-        // console.log(randomIndex);
-        // setRandomQuote(allQuotes[randomIndex]);
-        // console.log(allQuotes[randomIndex]);
     }
 
     function button(e) {
