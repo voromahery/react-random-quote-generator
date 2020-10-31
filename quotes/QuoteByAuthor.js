@@ -4,9 +4,7 @@ import { Link } from 'react-router-dom';
 export default function QuoteByAuthor(props) {
     const [authorQuote, setAuthorQuote] = useState([]);
     const authorName = props.quotesGenRandom.quoteAuthor;
-    const authorQuotes = props.allQuotes.find(quote => quote.quoteAuthor === authorName);
 
-    console.log(authorQuotes, "FFF");
     console.log(props.allQuotes,"ALL");
     console.log(authorName,"NAME");
 
@@ -25,7 +23,7 @@ export default function QuoteByAuthor(props) {
     return (
         <blockquote className="container">
             <h2 className="heading">{authorName}</h2>
-            {authorQuote.map((quote) => <p key={quote._id} className="quote">{quote.quoteText}</p>)}
+            {authorQuote.map((quote) => <p key={quote._id} className="quote"><q>{quote.quoteText}</q></p>)}
             <Link to="/">
                 <p className="page-navigator">Back to homepage</p>
             </Link>

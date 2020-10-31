@@ -33877,19 +33877,19 @@ function Quotes(props) {
     className: "container"
   }, /*#__PURE__*/_react.default.createElement("p", {
     className: "quote"
-  }, props.quotesGenRandom.quoteText), /*#__PURE__*/_react.default.createElement("div", {
+  }, /*#__PURE__*/_react.default.createElement("q", null, props.allQuotes.quoteText || props.quotesGenRandom.quoteText)), /*#__PURE__*/_react.default.createElement("div", {
     className: "link-wrapper"
   }, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
     to: "/quotes"
   }, /*#__PURE__*/_react.default.createElement("button", {
     className: "author-button",
-    value: props.quotesGenRandom.quoteAuthor,
+    value: props.allQuotes.quoteAuthor || props.quotesGenRandom.quoteAuthor,
     onClick: props.button
   }, /*#__PURE__*/_react.default.createElement("h3", {
     className: "author-name"
-  }, props.quotesGenRandom.quoteAuthor), /*#__PURE__*/_react.default.createElement("small", {
+  }, props.allQuotes.quoteAuthor || props.quotesGenRandom.quoteAuthor), /*#__PURE__*/_react.default.createElement("small", {
     className: "quote-genre"
-  }, props.quotesGenRandom.quoteGenre))))));
+  }, props.allQuotes.quoteGenre || props.quotesGenRandom.quoteGenre))))));
 }
 },{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js"}],"quotes/QuoteByAuthor.js":[function(require,module,exports) {
 "use strict";
@@ -33910,8 +33910,6 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 function QuoteByAuthor(props) {
   const [authorQuote, setAuthorQuote] = (0, _react.useState)([]);
   const authorName = props.quotesGenRandom.quoteAuthor;
-  const authorQuotes = props.allQuotes.find(quote => quote.quoteAuthor === authorName);
-  console.log(authorQuotes, "FFF");
   console.log(props.allQuotes, "ALL");
   console.log(authorName, "NAME");
   const quoteToFetch = `https://quote-garden.herokuapp.com/api/v2/authors/${authorName}?page=1&limit=10`;
@@ -33932,7 +33930,7 @@ function QuoteByAuthor(props) {
   }, authorName), authorQuote.map(quote => /*#__PURE__*/_react.default.createElement("p", {
     key: quote._id,
     className: "quote"
-  }, quote.quoteText)), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+  }, /*#__PURE__*/_react.default.createElement("q", null, quote.quoteText))), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
     to: "/"
   }, /*#__PURE__*/_react.default.createElement("p", {
     className: "page-navigator"
@@ -33982,20 +33980,24 @@ function App() {
     fetchAllQuotes(allQuotes);
   }, []);
 
-  function handleClick() {
-    const randomIndex = Math.floor(Math.random() * allQuotes.length);
-    console.log(randomIndex);
-    setRandomQuote(allQuotes[randomIndex]);
-    console.log(allQuotes[randomIndex]);
+  async function handleClick() {
+    const response4 = await fetch("https://quote-garden.herokuapp.com/api/v2/quotes/random");
+    const data4 = await response4.json();
+    console.log(data4);
+    setAllQuotes(data4.quote); // const randomIndex = Math.floor(Math.random() * allQuotes.length);
+    // console.log(randomIndex);
+    // setRandomQuote(allQuotes[randomIndex]);
+    // console.log(allQuotes[randomIndex]);
   }
 
   function button(e) {
     const buttons = e.target.value;
     const findByAuthor = quotesGenRandom.filter(quote => quote.quoteAuthor === buttons);
     setQuotesGenRandom(findByAuthor);
-  }
+    console.log(findByAuthor, "YESS");
+  } // console.log(allQuotes);
 
-  console.log(allQuotes);
+
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "site-container"
   }, /*#__PURE__*/_react.default.createElement(_reactRouterDom.BrowserRouter, null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Switch, null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
@@ -34008,6 +34010,7 @@ function App() {
     path: "/"
   }, /*#__PURE__*/_react.default.createElement(_Quotes.default, {
     randomQuote: randomQuote,
+    allQuotes: allQuotes,
     button: button,
     quotesGenRandom: quotesGenRandom,
     handleClick: handleClick
