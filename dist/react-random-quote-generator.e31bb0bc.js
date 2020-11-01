@@ -33962,21 +33962,15 @@ function App() {
   const [randomQuote, setRandomQuote] = (0, _react.useState)([]);
 
   async function fetchRandomQuote() {
-    const response1 = await fetch("https://quote-garden.herokuapp.com/api/v2/quotes/random");
-    const data1 = await response1.json();
-    setQuotesGenRandom(data1.quote);
+    const response = await fetch("https://quote-garden.herokuapp.com/api/v2/quotes/random");
+    const data = await response.json();
+    setQuotesGenRandom(data.quote);
+    setAllQuotes(data.quote);
   }
 
   (0, _react.useEffect)(() => {
     fetchRandomQuote(quotesGenRandom);
   }, []);
-
-  async function handleClick() {
-    const response4 = await fetch("https://quote-garden.herokuapp.com/api/v2/quotes/random");
-    const data4 = await response4.json();
-    console.log(data4);
-    setAllQuotes(data4.quote);
-  }
 
   function button(e) {
     const buttons = e.target.value;
@@ -34000,7 +33994,7 @@ function App() {
     allQuotes: allQuotes,
     button: button,
     quotesGenRandom: quotesGenRandom,
-    handleClick: handleClick
+    handleClick: fetchRandomQuote
   })))));
 }
 
