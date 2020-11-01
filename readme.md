@@ -34,23 +34,18 @@
 Introduce your projects by taking a screenshot or a gif. Try to tell visitors a story about your project by answering:
 
 -   Feel free to visit my demo on [Netlify](https://affectionate-shaw-8dcd34.netlify.app/)
--   What was your experience?
--   What have you learned/improved?
--   Your wisdom? :)
+-   During the time I created this app, I was struggled with dealing with router.
+-   What I have learned was, when using router, the main page should be after all pages. 
 
 ### Built With
-
-<!-- This section should list any major frameworks that you built your project using. Here are a few examples.-->
-
 -   [React](https://reactjs.org/)
 
 ## Features
+- [Quote Guarden](https://pprathameshmore.github.io/QuoteGarden/)
+- [icons](https://google.github.io/material-design-icons/)
 
-<!-- List the features of your application or follow the template. Don't share the figma file here :) -->
 
 ## How To Use
-
-<!-- Example: -->
 
 To clone and run this application, you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
 
@@ -64,10 +59,6 @@ $ npm install
 # Run the app
 $ npm start
 ```
-
-## Acknowledgements
-
-<!-- This section should list any articles or add-ons/plugins that helps you to complete the project. This is optional but it will help you in the future. For example: -->
 
 ## Contact
 
