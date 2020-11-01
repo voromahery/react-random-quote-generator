@@ -33967,15 +33967,8 @@ function App() {
     setQuotesGenRandom(data1.quote);
   }
 
-  async function fetchAllQuotes() {
-    const response2 = await fetch("https://quote-garden.herokuapp.com/api/v2/quotes?page=1&limit=10");
-    const data2 = await response2.json();
-    setAllQuotes(data2.quotes);
-  }
-
   (0, _react.useEffect)(() => {
     fetchRandomQuote(quotesGenRandom);
-    fetchAllQuotes(allQuotes);
   }, []);
 
   async function handleClick() {
@@ -34053,7 +34046,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55428" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58483" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

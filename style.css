@@ -55,6 +55,7 @@ button {
 
 .random-generator-button {
     background-color: transparent;
+    cursor: pointer;
 }
 
 .random-generator-button::after {
@@ -65,7 +66,7 @@ button {
     background-position-x: right;
     background-size: contain;
     background-repeat: no-repeat;
-    cursor: pointer;
+    /* cursor: pointer; */
 }
 
 .button-wrapper {

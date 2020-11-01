@@ -18,15 +18,8 @@ function App() {
         setQuotesGenRandom(data1.quote);
     }
 
-    async function fetchAllQuotes() {
-        const response2 = await fetch("https://quote-garden.herokuapp.com/api/v2/quotes?page=1&limit=10");
-        const data2 = await response2.json();
-        setAllQuotes(data2.quotes);
-    }
-
     useEffect(() => {
         fetchRandomQuote(quotesGenRandom);
-        fetchAllQuotes(allQuotes);
     }, [])
 
     async function handleClick() {
